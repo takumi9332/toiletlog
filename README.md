@@ -9,11 +9,11 @@
 | encrypted_password | string  | null: false               |
 
 ### Association
-- has_many :toilet_infos
+- has_many :toilets
 - has_many :comments
 
 
-## toilet_infos テーブル
+## toilets テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -40,8 +40,8 @@
 | rate        | float      | null: false, default: 0        |
 | text        | text       | null: false                    |
 | user        | references | null: false, foreign_key: true |
-| toilet_info | references | null: false, foreign_key: true |
+| toilet      | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- belongs_to :toilet_info
+- belongs_to :toilet
