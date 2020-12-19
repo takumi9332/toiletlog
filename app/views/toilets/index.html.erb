@@ -1,0 +1,10 @@
+<div class="contents row">
+  <% @toilets.each do |toilet| %>
+    <div class="content_post" style="background-image: url(<%= toilet.image %>);">
+      <p><%= comment.text.length %></p>
+      <span class="rate">
+        <%= comment.rate %>
+      </span>
+    </div>
+  <% end %>
+</div>
