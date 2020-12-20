@@ -18,6 +18,10 @@ class ToiletsController < ApplicationController
     end
   end
 
+  def show
+    @toilet = Toilet.find(params[:id])
+  end
+
   private
   def toilet_params
     params.require(:toilet).permit(:image, :prefecture_id, :city, :address, :building, :sex_id, :type_id, :washlet_id, :clean_id, :info).merge(user_id: current_user.id)

@@ -12,6 +12,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
+        <div id="image-list"></div>
         <%= f.file_field :image, id:"toilet-image" %>
       </div>
     </div>
@@ -42,28 +43,28 @@
       <%= f.text_field :building, class:"toilet-text", id:"toilet-building" %>
 
       <div>
-        男子トイレ・女子トイレ・共用トイレ
+        何トイレ
         <span class="indispensable">必須</span>
       </div>
       <%= f.collection_radio_buttons(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"toilet-sex"}) %>
       <p></p>
 
       <div>
-        洋式トイレ・和式トイレ・両方ある
+        種類
         <span class="indispensable">必須</span>
       </div>
       <%= f.collection_radio_buttons(:type_id, Type.all, :id, :name, {}, {class:"select-box", id:"toilet-type"}) %>
       <p></p>
 
       <div>
-        ウォシュレットあり・ウォシュレットなし・両方ある
+        ウォシュレット
         <span class="indispensable">必須</span>
       </div>
       <%= f.collection_radio_buttons(:washlet_id, Washlet.all, :id, :name, {}, {class:"select-box", id:"toilet-washlet"}) %>
       <p></p>
 
       <div>
-        すごく綺麗・やや綺麗・やや汚い・すごく汚い
+        状態
         <span class="indispensable">必須</span>
       </div>
       <%= f.collection_radio_buttons(:clean_id, Clean.all, :id, :name, {}, {class:"select-box", id:"toilet-clean"}) %>

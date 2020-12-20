@@ -1066,3 +1066,97 @@ footer p {
 .select-box{
   width: 65px;
 }
+
+.toilet-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.toilet-contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.toilet-contents>.subtitle {
+  font-size: 3vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  color: #3ccace;
+  font-weight: bold;
+}
+
+.toilet-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.toilet-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+
+.toilet-img-content {
+  position: relative;
+}
+
+.toilet-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.toilet-box-img {
+  height: 50vh;
+  width: 60vw;
+  min-height: 400px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
+}
+
+.more_list{
+  display: flex;
+}
+
+.toilet-edit {
+  text-align: center;
+  background-color: #96e676;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 0px 40px;
+  padding: 2vh 10vw;
+}
+.toilet-destroy {
+  background-color: rgb(226, 128, 128);
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  padding: 2vh 10vw;
+}
+
+.detail-table {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.detail-toilet {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}

@@ -1,0 +1,57 @@
+<div class="contents row">
+  <div class='toilet-img-content'>
+    <%= image_tag @toilet.image ,class:"toilet-box-img" %>
+  </div>
+
+  <table class="detail-table">
+    <tbody>
+      <tr>
+        <th class="detail-toilet">都道府県</th>
+        <td class="detail-value"><%= @toilet.prefecture.name %></td>
+      </tr>
+      <tr>
+        <th class="detail-toilet">市区町村</th>
+        <td class="detail-value"><%= @toilet.city %></td>
+      </tr>
+      <tr>
+        <th class="detail-toilet">番地</th>
+        <td class="detail-value"><%= @toilet.address %></td>
+      </tr>
+      <tr>
+        <th class="detail-toilet">建物名</th>
+        <td class="detail-value"><%= @toilet.building %></td>
+      </tr>
+      <tr>
+        <th class="detail-toilet">何トイレ</th>
+        <td class="detail-value"><%= @toilet.sex.name %></td>
+      </tr>
+      <tr>
+        <th class="detail-toilet">種類</th>
+        <td class="detail-value"><%= @toilet.type.name %></td>
+      </tr>
+      <tr>
+        <th class="detail-toilet">ウォシュレット</th>
+        <td class="detail-value"><%= @toilet.washlet.name %></td>
+      </tr>
+      <tr>
+        <th class="detail-toilet">状態</th>
+        <td class="detail-value"><%= @toilet.clean.name %></td>
+      </tr>
+      <tr>
+        <th class="detail-toilet">情報</th>
+        <td class="detail-value"><%= @toilet.info %></td>
+      </tr>
+    </tbody>
+  </table>
+
+    <% if current_user.id == @toilet.user_id %>
+    <ul class="more_list">
+      <li>
+        <%= link_to '編集', edit_toilet_path, method: :get, class: "toilet-edit" %>
+      </li>
+      <li>
+        <%= link_to '削除', toilet_path, method: :delete, class: "toilet-destroy" %>
+      </li>
+    </ul>
+    <% end %>
+</div>
