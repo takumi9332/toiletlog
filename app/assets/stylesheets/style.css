@@ -1060,4 +1060,9 @@ footer p {
 
 .indispensable{
   color: red;
+  font-size: small;
+}
+
+.select-box{
+  width: 65px;
 }

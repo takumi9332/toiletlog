@@ -1,0 +1,80 @@
+<div class="contents row">
+  <div class="container">
+    <h3>トイレ情報を投稿する</h3>
+    <%= form_with model:@toilet, url:toilets_path, local:true do |f| %>
+    <div class="img-upload">
+      <div>
+        トイレ画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div id="image-list"></div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"toilet-image" %>
+      </div>
+    </div>
+    
+    <div class="new-toilet">
+      <div>
+        都道府県
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {id:"toilet-prefecture"}) %>
+      <p></p>
+
+      <div>
+        市区町村
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :city, class:"toilet-text", id:"toilet-city" %>
+
+      <div>
+        番地
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :address, class:"toilet-text", id:"toilet-address" %>
+
+      <div>
+        建物名
+      </div>
+      <%= f.text_field :building, class:"toilet-text", id:"toilet-building" %>
+
+      <div>
+        男子トイレ・女子トイレ・共用トイレ
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_radio_buttons(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"toilet-sex"}) %>
+      <p></p>
+
+      <div>
+        洋式トイレ・和式トイレ・両方ある
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_radio_buttons(:type_id, Type.all, :id, :name, {}, {class:"select-box", id:"toilet-type"}) %>
+      <p></p>
+
+      <div>
+        ウォシュレットあり・ウォシュレットなし・両方ある
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_radio_buttons(:washlet_id, Washlet.all, :id, :name, {}, {class:"select-box", id:"toilet-washlet"}) %>
+      <p></p>
+
+      <div>
+        すごく綺麗・やや綺麗・やや汚い・すごく汚い
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_radio_buttons(:clean_id, Clean.all, :id, :name, {}, {class:"select-box", id:"toilet-clean"}) %>
+      <p></p>
+
+      <div>
+        情報
+      </div>
+      <%= f.text_area :info, class:"toilet-info", id:"toilet-info", placeholder:"細かい情報があればこちらに(1,000文字まで)",rows:"7" ,maxlength:"1000" %>
+      <%= f.submit "SEND" %>
+    </div>
+    <% end %>
+  </div>
+</div>
