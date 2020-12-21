@@ -1,0 +1,17 @@
+<div class="contents row">
+  <p><%= @name %>さんの投稿一覧</p>
+  <% @toilets.each do |toilet| %>
+    <li class='list'>
+    <%= link_to toilet_path(toilet.id) do %>
+      <div class='toilet-img-content'>
+      <%= image_tag toilet.image, class: "toilet-img" %>
+      </div>
+      <%# <div class='toilet-rate'> %>
+        <%# <h3 class='comment-rate'> %>
+        <%# <%= @comment.rate %> %>
+        <%# </h3> %>
+      <%# </div> %>
+    <% end %>
+    </li>
+  <% end %>
+</div>
