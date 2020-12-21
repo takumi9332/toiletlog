@@ -8,6 +8,8 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require('./preview')
+window.$ = window.jQuery = require('jquery');
+require('packs/raty')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

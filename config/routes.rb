@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'toilets#index'
-  resources :toilets
+  resources :toilets do
+    resources :comments, only: :create
+  end
   resources :users, only: :show
 end

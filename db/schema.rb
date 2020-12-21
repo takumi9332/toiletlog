@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_025016) do
+ActiveRecord::Schema.define(version: 2020_12_21_024212) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 2020_12_19_025016) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.float "rate", default: 0.0, null: false
+    t.text "text", null: false
+    t.bigint "user_id", null: false
+    t.bigint "toilet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["toilet_id"], name: "index_comments_on_toilet_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "toilets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -63,5 +74,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_025016) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "toilets"
+  add_foreign_key "comments", "users"
   add_foreign_key "toilets", "users"
 end

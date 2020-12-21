@@ -21,6 +21,8 @@ class ToiletsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @toilet.comments.includes(:user)
   end
 
   def edit

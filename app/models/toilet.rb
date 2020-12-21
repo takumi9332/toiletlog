@@ -8,6 +8,7 @@ class Toilet < ApplicationRecord
   belongs_to :washlet
   belongs_to :clean
   belongs_to :user
+  has_many :comments
 
   with_options presence: true do
     validates :city

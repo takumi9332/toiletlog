@@ -54,4 +54,55 @@
       </li>
     </ul>
     <% end %>
+
+    <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@toilet, @comment], local: true) do |f| %>
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+
+        <div class="form-group row" id="star">
+        <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
+        <%= f.hidden_field :star, id: :review_star %>
+        </div>
+
+        <!-- 評価javascript -->
+        <script>
+        $('#star').raty({
+          size : 36,
+          starOff : '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          half: false,
+          scoreName: 'comment[rate]',
+        });
+        </script>
+
+        <%= f.submit "SEND" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
+            <%= comment.text %>
+            <%= comment.rate%>
+            <div id="star-rate<%= comment.id%>"></div>
+            <script>
+              $('#star-rate<%= comment.id%>').raty({
+                size : 36,
+                starOff : '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                half : false,
+                readOnly: true,
+                score: <%= comment.rate %>,
+              });
+            </script>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
