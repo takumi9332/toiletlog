@@ -65,7 +65,6 @@
         <%= f.hidden_field :star, id: :review_star %>
         </div>
 
-        <!-- 評価javascript -->
         <script>
         $('#star').raty({
           size : 36,
@@ -88,8 +87,8 @@
           <p>
             <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
             <%= comment.text %>
-            <%= comment.rate%>
             <div id="star-rate<%= comment.id%>"></div>
+
             <script>
               $('#star-rate<%= comment.id%>').raty({
                 size : 36,
@@ -100,6 +99,7 @@
                 score: <%= comment.rate %>,
               });
             </script>
+            
           </p>
         <% end %>
       <% end %>

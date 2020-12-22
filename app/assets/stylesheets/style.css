@@ -1089,32 +1089,15 @@ footer p {
   font-weight: bold;
 }
 
-.toilet-lists {
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.toilet-lists>.list {
-  width: 37vh;
-  padding: 1vw;
-  background-color: #FFF;
-}
-
-
-.toilet-img-content {
-  position: relative;
-}
-
 .toilet-img {
-  width: 33vh;
-  height: 33vh;
+  width: 28vh;
+  height: 28vh;
+  border: 3px solid #3ccace;
 }
 
 .toilet-box-img {
   height: 50vh;
-  width: 60vw;
+  width: 66vw;
   min-height: 400px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
@@ -1159,4 +1142,8 @@ footer p {
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 14px;
+}
+
+select#place_cont{
+  width: 25%;
 }
