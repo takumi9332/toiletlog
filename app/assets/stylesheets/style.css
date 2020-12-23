@@ -355,16 +355,9 @@ table {
   box-sizing: border-box;
 }
 
-img,
-object,
-embed {
+img {
   max-width: 100%;
   height: auto;
-}
-
-object,
-embed {
-  height: 100%;
 }
 
 .left {
@@ -375,51 +368,9 @@ embed {
   float: right;
 }
 
-.clearfix {
-  *zoom: 1;
-}
-
-.clearfix:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
-  overflow: hidden;
-  visibility: hidden;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-.hide {
-  display: none;
-}
-
-.antialiased {
-  -webkit-font-smoothing: antialiased;
-}
-
 img {
   display: inline-block;
   vertical-align: middle;
-}
-
-textarea {
-  height: auto;
-  min-height: 50px;
 }
 
 select {
@@ -428,21 +379,6 @@ select {
 
 i {
   font-style: normal;
-}
-
-.animate {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -moz-transition-timing-function: ease-in;
-  -o-transition-timing-function: ease-in;
-  -webkit-transition-timing-function: ease-in;
-  transition-timing-function: ease-in;
 }
 
 .button {
@@ -472,92 +408,15 @@ ul li {
   *zoom: 1;
 }
 
-.row .grid-1,
-.row .grid-2,
-.row .grid-3,
-.row .grid-4,
-.row .grid-5,
-.row .grid-6,
-.row .grid-7,
-.row .grid-8,
-.row .grid-9,
-.row .grid-10,
-.row .grid-11,
-.row .grid-12 {
+
+.row .grid-6 {
   float: left;
   margin-left: 0.9%;
   margin-right: 0.9%;
 }
 
-.row .grid-1 {
-  width: 6.53333%;
-}
-
-.row .grid-2 {
-  width: 14.86667%;
-}
-
-.row .grid-3 {
-  width: 23.2%;
-}
-
-.row .grid-4 {
-  width: 31.53333%;
-}
-
-.row .grid-5 {
-  width: 39.86667%;
-}
-
 .row .grid-6 {
   width: 48.2%;
-}
-
-.row .grid-7 {
-  width: 56.53333%;
-}
-
-.row .grid-8 {
-  width: 64.86667%;
-}
-
-.row .grid-9 {
-  width: 73.2%;
-}
-
-.row .grid-10 {
-  width: 81.53333%;
-}
-
-.row .grid-11 {
-  width: 89.86667%;
-}
-
-.row .grid-12 {
-  width: 98.2%;
-}
-
-.row:before,
-.row:after {
-  content: " ";
-  display: table;
-}
-
-.row:after {
-  clear: both;
-}
-
-.row.collapse>.column,
-.row.collapse>.columns {
-  position: relative;
-  padding-left: 0;
-  padding-right: 0;
-  float: left;
-}
-
-.row.collapse .row {
-  margin-left: 0;
-  margin-right: 0;
 }
 
 .row .row {
@@ -568,33 +427,6 @@ ul li {
   margin-bottom: 0;
   max-width: none;
   *zoom: 1;
-}
-
-.row .row:before,
-.row .row:after {
-  content: " ";
-  display: table;
-}
-
-.row .row:after {
-  clear: both;
-}
-
-.row .row.collapse {
-  width: auto;
-  margin: 0;
-  max-width: none;
-  *zoom: 1;
-}
-
-.row .row.collapse:before,
-.row .row.collapse:after {
-  content: " ";
-  display: table;
-}
-
-.row .row.collapse:after {
-  clear: both;
 }
 
 @media only screen and (max-width: 40em) {
@@ -665,42 +497,9 @@ a {
   color: #666;
 }
 
-a:hover {
-  color: #57C3E9;
-}
-
-.bold {
-  font-weight: bold;
-}
-
 .serif,
 div.contents.row div.content_post p {
   font-family: 'ほのか明朝', serif;
-}
-
-.ultra {
-  font-size: 2em !important;
-}
-
-::selection {
-  background: #D8D8D8;
-}
-
-.transition,
-a,
-form input[type="submit"] {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -moz-transition-timing-function: linear;
-  -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
-  transition-timing-function: linear;
 }
 
 .btn,
@@ -1097,7 +896,7 @@ footer p {
 
 .toilet-box-img {
   height: 50vh;
-  width: 66vw;
+  width: 68vw;
   min-height: 400px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
@@ -1113,7 +912,7 @@ footer p {
   font-size: 20px;
   font-weight: bold;
   color: #FFF;
-  margin: 0px 40px;
+  margin: 0px 60px;
   padding: 2vh 10vw;
 }
 .toilet-destroy {

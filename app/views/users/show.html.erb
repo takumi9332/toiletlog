@@ -3,6 +3,19 @@
   <% @toilets.each do |toilet| %>
     <%= link_to toilet_path(toilet.id) do %>
     <%= image_tag toilet.image, class: "toilet-img" %>
+    <div id="star-rate<%= toilet.id%>"></div><p></p>
+
+    <script>
+      $('#star-rate<%= toilet.id%>').raty({
+        size : 36,
+        starOff : '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf : '<%= asset_path('star-half.png') %>',
+        half : true,
+        readOnly: true,
+        score: '<%= toilet.comments.average(:rate).to_f.round(1) %>',
+      });
+    </script>
 
     <% end %>
   <% end %>

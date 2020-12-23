@@ -44,19 +44,15 @@
     </tbody>
   </table>
 
-    <% if current_user.id == @toilet.user_id %>
-    <ul class="more_list">
-      <li>
-        <%= link_to '編集', edit_toilet_path, method: :get, class: "toilet-edit" %>
-      </li>
-      <li>
-        <%= link_to '削除', toilet_path, method: :delete, class: "toilet-destroy" %>
-      </li>
-    </ul>
+  <% if user_signed_in? %>
+    <% if current_user.id == @toilet.user_id ||  %>
+    <div class="more_list">
+      <%= link_to '編集', edit_toilet_path, method: :get, class: "toilet-edit" %>
+      <%= link_to '削除', toilet_path, method: :delete, class: "toilet-destroy" %>
+    </div>
     <% end %>
 
     <div class="container">
-    <% if user_signed_in? %>
       <%= form_with(model: [@toilet, @comment], local: true) do |f| %>
         <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
 
@@ -77,9 +73,9 @@
 
         <%= f.submit "SEND" %>
       <% end %>
-    <% else %>
+  <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-    <% end %>
+  <% end %>
     <div class="comments">
       <h4>＜コメント一覧＞</h4>
       <% if @comments %>
@@ -99,7 +95,7 @@
                 score: <%= comment.rate %>,
               });
             </script>
-            
+
           </p>
         <% end %>
       <% end %>
