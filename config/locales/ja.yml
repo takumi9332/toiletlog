@@ -1,0 +1,17 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       name: 名前
+       email: メールアドレス
+     toilet:
+       image: トイレ画像
+       prefecture_id: 都道府県
+       city: 市区町村
+       address: 番地
+       building: 建物名
+       sex_id: 何トイレか
+       type_id: 種類
+       washlet_id: ウォシュレット
+       clean_id: 状態
+       info: 情報

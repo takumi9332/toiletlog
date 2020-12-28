@@ -16,7 +16,7 @@ class ToiletsController < ApplicationController
     if @toilet.save
       redirect_to root_path
     else
-      redirect_to action: :new
+      render :new
     end
   end
 
@@ -35,7 +35,7 @@ class ToiletsController < ApplicationController
     if @toilet.update(toilet_params)
       redirect_to action: :show
     else
-      redirect_to action: :edit
+      render :edit
     end
   end
 

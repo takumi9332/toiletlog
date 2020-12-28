@@ -965,3 +965,27 @@ select#place_cont{
 .search-pulldown{
   width: 190px;
 }
+
+.error-alert {
+  color:#262626; 
+  background:#FFEBE8;
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px; font-weight:850;
+}
+
+.login-flash-message{
+  color:#262626; 
+  text-align: center;
+  padding:12px; font-weight:850;
+}
+
+.error_explanation{
+  color:#262626; 
+  text-align: center;
+  padding:12px; font-weight:850;
+}
+
+.field_with_errors{
+  display: contents;
+}

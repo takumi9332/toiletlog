@@ -11,6 +11,7 @@ class Toilet < ApplicationRecord
   has_many :comments
 
   with_options presence: true do
+    validates :image
     validates :city
     validates :address
     validates :sex_id

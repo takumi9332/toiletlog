@@ -2,6 +2,7 @@
   <div class="container">
     <h3>トイレ情報を編集する</h3>
     <%= form_with model:@toilet, local:true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div class="img-upload">
       <div>
         トイレ画像
