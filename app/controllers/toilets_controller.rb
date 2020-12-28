@@ -3,7 +3,7 @@ class ToiletsController < ApplicationController
   before_action :set_toilet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @toilets = Toilet.includes(:user)
+    @toilets = Toilet.includes(:user).page(params[:page]).per(10)
   end
 
   def new
@@ -47,7 +47,7 @@ class ToiletsController < ApplicationController
   end
 
   def search
-    @toilets = Toilet.search(params[:keyword])
+    @toilets = Toilet.search(params[:keyword]).page(params[:page]).per(10)
   end
 
   private

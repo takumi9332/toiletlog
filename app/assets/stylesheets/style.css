@@ -956,3 +956,8 @@ select#place_cont{
   width: 37vh;
   padding: 1vw;
 }
+
+.pagination{
+  text-align: center;
+  margin-top: 20px;
+}
