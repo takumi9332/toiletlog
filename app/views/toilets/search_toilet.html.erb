@@ -1,11 +1,12 @@
-<%= form_with(url: search_toilets_path, local: true, method: :get, class: "search-form") do |f| %>
-  <%= f.text_field :keyword, placeholder: "トイレを検索する", class: "search-input" %>
-  <%= f.submit "検索", class: "search-btn" %>
+<%= search_form_for @p, url: toilets_searchtoilet_path, class: "search-form" do |f| %>
+<%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, {include_blank:"--"}, {class: "search-pulldown"} %>
+<%= f.search_field :city_or_address_or_building_cont, placeholder: "トイレを検索する", class: "search-input" %>
+<%= f.submit '検索', class: "search-btn" %>
 <% end %>
 
 <div class="contents row">
   <ul class="toilet_lists">
-  <% @toilets.each do |toilet| %>
+  <% @results.each do |toilet| %>
     <li class="toilet_list">
     <%= link_to toilet_path(toilet.id) do %>
     <%= image_tag toilet.image, class: "toilet-img" %>
@@ -26,5 +27,5 @@
   <% end %>
   </li>
   </ul>
-  <%= paginate @toilets %>
+  <%= paginate @results %>
 </div>

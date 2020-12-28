@@ -19,12 +19,4 @@ class Toilet < ApplicationRecord
     validates :clean_id
   end
   validates :prefecture_id, numericality: { other_than: 1 }
-
-  def self.search(search)
-    if search != ""
-      Toilet.where('city LIKE ? OR address LIKE ? OR building LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
-    else
-      Toilet.all
-    end
-  end
 end

@@ -961,3 +961,7 @@ select#place_cont{
   text-align: center;
   margin-top: 20px;
 }
+
+.search-pulldown{
+  width: 190px;
+}

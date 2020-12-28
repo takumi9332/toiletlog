@@ -1,6 +1,7 @@
 class ToiletsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_toilet, only: [:show, :edit, :update, :destroy]
+  before_action :create_searching_object, only: [:index, :search_toilet]
 
   def index
     @toilets = Toilet.includes(:user).page(params[:page]).per(10)
@@ -46,8 +47,8 @@ class ToiletsController < ApplicationController
     redirect_to root_path
   end
 
-  def search
-    @toilets = Toilet.search(params[:keyword]).page(params[:page]).per(10)
+  def search_toilet
+    @results = @p.result.page(params[:page]).per(10)
   end
 
   private
@@ -57,5 +58,9 @@ class ToiletsController < ApplicationController
 
   def set_toilet
     @toilet = Toilet.find(params[:id])
+  end
+
+  def create_searching_object
+    @p = Toilet.ransack(params[:q])
   end
 end
