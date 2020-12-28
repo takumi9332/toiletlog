@@ -1,27 +1,29 @@
 <%= form_with(url: search_toilets_path, local: true, method: :get, class: "search-form") do |f| %>
-  <%# <%= f.collection_select :place_cont, Prefecture.all, :id, :name %>
   <%= f.text_field :keyword, placeholder: "トイレを検索する", class: "search-input" %>
   <%= f.submit "検索", class: "search-btn" %>
 <% end %>
 
 <div class="contents row">
+  <ul class="toilet_lists">
   <% @toilets.each do |toilet| %>
-  <%= link_to toilet_path(toilet.id) do %>
-  <%= image_tag toilet.image, class: "toilet-img" %>
-  <div id="star-rate<%= toilet.id%>"></div><p></p>
-
-    <script>
-      $('#star-rate<%= toilet.id%>').raty({
-        size : 36,
-        starOff : '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        starHalf : '<%= asset_path('star-half.png') %>',
-        half : true,
-        readOnly: true,
-        score: '<%= toilet.comments.average(:rate).to_f.round(1) %>',
-      });
-    </script>
-
+    <li class="toilet_list">
+    <%= link_to toilet_path(toilet.id) do %>
+    <%= image_tag toilet.image, class: "toilet-img" %>
+    <div id="star-rate<%= toilet.id%>">Avg.</div>
+    
+      <script>
+        $('#star-rate<%= toilet.id%>').raty({
+          size : 36,
+          starOff : '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf : '<%= asset_path('star-half.png') %>',
+          half : true,
+          readOnly: true,
+          score: '<%= toilet.comments.average(:rate).to_f.round(1) %>',
+        });
+      </script>
+    <% end %>
   <% end %>
-  <% end %>
+  </li>
+  </ul>
 </div>

@@ -946,3 +946,13 @@ footer p {
 select#place_cont{
   width: 25%;
 }
+
+.toilet_lists{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.toilet_list{
+  width: 37vh;
+  padding: 1vw;
+}

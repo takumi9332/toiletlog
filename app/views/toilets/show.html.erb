@@ -45,7 +45,7 @@
   </table>
 
   <% if user_signed_in? %>
-    <% if current_user.id == @toilet.user_id ||  %>
+    <% if current_user.id == @toilet.user_id %>
     <div class="more_list">
       <%= link_to '編集', edit_toilet_path, method: :get, class: "toilet-edit" %>
       <%= link_to '削除', toilet_path, method: :delete, class: "toilet-destroy" %>
