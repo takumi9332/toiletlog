@@ -54,7 +54,7 @@
 
     <div class="container">
       <%= form_with(model: [@toilet, @comment], local: true) do |f| %>
-        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= f.text_area :text, placeholder: "※コメント(100文字まで)と評価はセットでないと送れません", rows: "2", maxlength:"100" %>
 
         <div class="form-group row" id="star">
         <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>

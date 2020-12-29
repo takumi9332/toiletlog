@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :toilets
   has_many :comments
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 8 }
 end

@@ -20,4 +20,5 @@ class Toilet < ApplicationRecord
     validates :clean_id
   end
   validates :prefecture_id, numericality: { other_than: 1 }
+  validates :info, length: { maximum: 1000 }
 end
