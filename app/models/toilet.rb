@@ -21,4 +21,9 @@ class Toilet < ApplicationRecord
   end
   validates :prefecture_id, numericality: { other_than: 1 }
   validates :info, length: { maximum: 1000 }
+
+  ransacker :comments_count do
+    query = '(SELECT COUNT(comments.toilet_id) FROM comments WHERE comments.toilet_id = toilets.id GROUP BY comments.toilet_id)'
+    Arel.sql(query)
+  end
 end

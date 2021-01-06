@@ -475,6 +475,7 @@ html {
 
 body {
   padding-top: 60px;
+  display: flex;
 }
 
 h1,
@@ -844,17 +845,20 @@ footer p {
 }
 
 .search-form {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   padding-top: 32px;
 }
 
 .search-form .search-input {
-  width: 30%;
+  width: 80%;
   margin-right: 10px;
 }
 
 .search-form .search-btn {
-  width: 10%;
+  width: 60%;
+  margin-left: 10%;
 }
 
 .indispensable{
@@ -963,7 +967,8 @@ select#place_cont{
 }
 
 .search-pulldown{
-  width: 190px;
+  width: 75%;
+  margin-bottom: 10px;
 }
 
 .error-alert {
@@ -988,4 +993,21 @@ select#place_cont{
 
 .field_with_errors{
   display: contents;
+}
+
+#q_sorts{
+  width: 75%;
+  margin-bottom: 10px;
+}
+
+aside{
+  width: 25%;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-letter{
+  margin-left: -50px;
 }

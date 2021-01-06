@@ -4,7 +4,7 @@ class ToiletsController < ApplicationController
   before_action :create_searching_object, only: [:index, :search_toilet]
 
   def index
-    @toilets = Toilet.includes(:user).page(params[:page]).per(10)
+    @toilets = Toilet.includes(:user).page(params[:page]).per(6)
   end
 
   def new
@@ -22,7 +22,7 @@ class ToiletsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @toilet.comments.includes(:user)
+    @comments = @toilet.comments.includes(:user).order("created_at DESC")
   end
 
   def edit
@@ -48,7 +48,7 @@ class ToiletsController < ApplicationController
   end
 
   def search_toilet
-    @results = @p.result.page(params[:page]).per(10)
+    @results = @p.result.page(params[:page]).per(6)
   end
 
   private
