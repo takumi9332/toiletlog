@@ -8,7 +8,8 @@ class Toilet < ApplicationRecord
   belongs_to :washlet
   belongs_to :clean
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   with_options presence: true do
     validates :image
@@ -24,6 +25,11 @@ class Toilet < ApplicationRecord
 
   ransacker :comments_count do
     query = '(SELECT COUNT(comments.toilet_id) FROM comments WHERE comments.toilet_id = toilets.id GROUP BY comments.toilet_id)'
+    Arel.sql(query)
+  end
+
+  ransacker :favorites_count do
+    query = '(SELECT COUNT(favorites.toilet_id) FROM favorites WHERE favorites.toilet_id = toilets.id GROUP BY favorites.toilet_id)'
     Arel.sql(query)
   end
 end

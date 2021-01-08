@@ -1,0 +1,15 @@
+<div id="favorite<%=@toilet.id%>">
+<% if !Favorite.exists?(user: current_user, toilet_id: @toilet.id) %>
+  <%= link_to toilet_favorites_path(@toilet), method: :post, remote: true, class: "favorite-btn" do %>
+    <i class="far fa-bookmark fa-2x"></i>
+  <% end %>
+    <span>ブックマークする</span>
+    <%= @toilet.favorites.length %>
+<% else %>
+  <%= link_to toilet_favorite_path(@toilet, id: toilet.favorites[0].id), method: :delete, remote: true, class: "favorite-btn" do %>
+    <i class="fas fa-bookmark fa-2x"></i>
+  <% end %>
+    <span>ブックマーク済み</span>
+    <%= @toilet.favorites.length %>
+<% end %>
+</div>

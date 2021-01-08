@@ -11,6 +11,7 @@
 ### Association
 - has_many :toilets
 - has_many :comments
+- has_many :favorites
 
 
 ## toilets テーブル
@@ -31,6 +32,7 @@
 ### Association
 - belongs_to :user
 - has_many :comments
+- has_many :favorites
 
 
 ## comments テーブル
@@ -39,6 +41,18 @@
 | ----------- | ---------- | ------------------------------ |
 | rate        | float      | null: false, default: 0        |
 | text        | text       | null: false                    |
+| user        | references | null: false, foreign_key: true |
+| toilet      | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :toilet
+
+
+## favorites テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
 | user        | references | null: false, foreign_key: true |
 | toilet      | references | null: false, foreign_key: true |
 

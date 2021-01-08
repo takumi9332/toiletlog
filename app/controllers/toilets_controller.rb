@@ -22,7 +22,11 @@ class ToiletsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @toilet.comments.includes(:user).order("created_at DESC")
+    @comments = @toilet.comments.includes(:user).order("created_at DESC").page(params[:page]).per(8)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit

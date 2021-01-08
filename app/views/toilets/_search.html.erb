@@ -1,0 +1,14 @@
+<aside>
+  <%= search_form_for @p, url: toilets_searchtoilet_path, class: "search-form" do |f| %>
+  <%= f.select :sorts, {'並び替え': 'id asc', '評価が多い': 'comments_count desc', 'ブックマークが多い': 'favorites_count desc', '新着': 'id desc'}, {selected: params[:q]}, {onchange: 'this.form.submit()'} %>
+  <p class="search-letter">検索フォーム</p>
+  <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, {include_blank:"都道府県"}, {class: "search-pulldown"} %>
+  <%= f.collection_select :sex_id_eq, Sex.all, :id, :name, {include_blank:"トイレ"}, {class: "search-pulldown"} %>
+  <%= f.collection_select :type_id_eq, Type.all, :id, :name, {include_blank:"種類"}, {class: "search-pulldown"} %>
+  <%= f.collection_select :washlet_id_eq, Washlet.all, :id, :name, {include_blank:"ウォシュレット"}, {class: "search-pulldown"} %>
+  <%= f.collection_select :clean_id_eq, Clean.all, :id, :name, {include_blank:"状態"}, {class: "search-pulldown"} %>
+  <%= f.search_field :city_or_address_or_building_cont, placeholder: "住所、建物名", class: "search-input" %>
+  <%= f.submit '絞り込む', class: "search-btn" %>
+  <% end %>
+  <p>©︎ Toiletlog 2020.</p>
+</aside>

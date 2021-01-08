@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'toilets/searchtoilet', to: 'toilets#search_toilet'
   resources :toilets do
     resources :comments, only: :create
+    resources :favorites, only: [:create, :destroy]
   end
-  resources :users, only: :show
+  resources :users, only: :show do
+    get :favorites, on: :collection
+  end
 end
