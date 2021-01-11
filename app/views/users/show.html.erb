@@ -23,12 +23,12 @@
   <% end %>
   </li>
   </ul>
-  <%= paginate @toilets, remote: true %>
+  <%= paginate @toilets, remote: true, param_name: 'post_page' %>
 
-  <% if @favorite_list.present? %>
+  <% if @favorites.present? %>
   <p><%= @name %>さんのブックマーク一覧</p>
   <ul class="toilet_lists">
-  <% @favorite_list.each do |toilet| %>
+  <% @favorites.each do |toilet| %>
     <li class="toilet_list">
     <%= link_to toilet_path(toilet.id) do %>
     <%= image_tag toilet.image, class: "toilet-img" %>
@@ -50,6 +50,6 @@
   <% end %>
   </li>
   </ul>
-  <%= paginate @toilets, remote: true %>
+  <%= paginate @favorites, remote: true, param_name: 'favorite_page' %>
   <% end %>
 </div>
