@@ -50,7 +50,7 @@
     <% if current_user.id == @toilet.user_id %>
     <div class="more_list">
       <%= link_to '編集', edit_toilet_path, method: :get, class: "toilet-edit" %>
-      <%= link_to '削除', toilet_path, method: :delete, class: "toilet-destroy" %>
+      <%= link_to '削除', toilet_path, method: :delete, data:{confirm:'削除しますか?'}, class: "toilet-destroy" %>
     </div>
     <% end %>
 
@@ -85,6 +85,15 @@
           <p>
             <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
             <%= comment.text %>
+
+            <% if user_signed_in? %>
+              <% if comment.user_id == current_user.id %>
+                <%= link_to toilet_comment_path(@toilet, comment) , method: :delete, data:{confirm:'削除しますか?'} do %>
+                <i class="fas fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+            
             <div id="star-rate<%= comment.id%>"></div>
 
             <script>

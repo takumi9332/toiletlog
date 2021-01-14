@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'toilets#index'
   get 'toilets/searchtoilet', to: 'toilets#search_toilet'
   resources :toilets do
-    resources :comments, only: :create
+    resources :comments, only: [:create, :destroy]
     resources :favorites, only: [:create, :destroy]
   end
   resources :users, only: :show do
